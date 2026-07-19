@@ -58,6 +58,8 @@ app.get('/bookings', bookingCtrl.index)
 app.get('/bookings/:bookingId', bookingCtrl.show )
 app.get('/bookings/:bookingId/edit', bookingCtrl.edit)
 app.put('/bookings/:bookingId', bookingCtrl.update)
+app.delete('/bookings/:bookingId', bookingCtrl.deleteBooking)
+
 
 
 

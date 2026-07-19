@@ -50,6 +50,11 @@ const update = async(req, res)=>{
     res.redirect(`/bookings/${req.params.bookingId}`)
 }
 
+const deleteBooking = async (req,res)=>{
+await Booking.findByIdAndDelete(req.params.bookingId)
+res.redirect('/bookings')
+}
+
 module.exports = {
-newBookingForm, createBooking, index, show, update, edit,
+newBookingForm, createBooking, index, show, update, edit, deleteBooking,
 };
