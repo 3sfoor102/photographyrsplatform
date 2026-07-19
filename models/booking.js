@@ -1,6 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const bookingSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+    },
     date: {
         type: Date,
         required: true,
@@ -15,13 +23,14 @@ const bookingSchema = new mongoose.Schema({
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
         ref: 'User',
     }
 
 }, {timestamps: true })
 
 
-const Booking = mongoose.model("Booking", userSchema);
+const Booking = mongoose.model("Booking", bookingSchema);
 
 module.exports = Booking;
+
+

@@ -7,6 +7,7 @@ dns.setServers(["8.8.8.8", "1.1.1.1"]);
 require("dotenv").config();
 
 const authCtrl = require("./controllers/auth.js");
+const bookingCtrl = require("./controllers/booking-controller.js");
 const isSignedIn = require("./middleware/is-signed-in.js");
 const passUserToView = require("./middleware/pass-user-to-view.js");
 const methodOverride = require("method-override");
@@ -48,6 +49,29 @@ app.post("/auth/sign-in", authCtrl.signIn);
 app.delete("/auth/sign-out", authCtrl.signOut);
 
 app.get("/dashboard", isSignedIn, authCtrl.dashboard);
+
+// Bookings Routes
+app.get('/bookings/new', isSignedIn, bookingCtrl.newBookingForm)
+app.post('/booking', isSignedIn, bookingCtrl.createBooking)
+app.get('/bookings', bookingCtrl.index)
+app.get('/bookings/:bookingId', bookingCtrl.show )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const startServer = async () => {
     try {
