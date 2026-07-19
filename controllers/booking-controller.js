@@ -14,7 +14,6 @@ const createBooking = async (req, res) =>{
 
     await Booking.create(bookingData)
 
-    // Send the data to your Make/Zapier webhook for TickTick
     try {
         await fetch('https://hook.eu1.make.com/p3hpedvrb8nny1w9c4103otdfjhjbjge', {
             method: 'POST',
@@ -25,7 +24,7 @@ const createBooking = async (req, res) =>{
                 title: `📸 New Booking: ${bookingData.name}`,
                 dueDate: bookingData.date,
                 notes: `Email: ${bookingData.email}\nPhone: ${bookingData.phoneNumber}\nPackage: ${bookingData.package}`,
-                tags: ['photography', 'booking']
+                list: ['Videography - Reservations']
             }),
         });
     } catch (err) {
