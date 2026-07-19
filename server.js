@@ -19,6 +19,7 @@ const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
 
+
 const app = express();
 
 const PORT = process.env.PORT || 3000; // For me, this is best practice. Usually, the port is placed in .env; if not, 3000 will be used
@@ -55,6 +56,8 @@ app.get('/bookings/new', isSignedIn, bookingCtrl.newBookingForm)
 app.post('/booking', isSignedIn, bookingCtrl.createBooking)
 app.get('/bookings', bookingCtrl.index)
 app.get('/bookings/:bookingId', bookingCtrl.show )
+app.get('/bookings/:bookingId/edit', bookingCtrl.edit)
+app.put('/bookings/:bookingId', bookingCtrl.update)
 
 
 

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const bookingSchema = new mongoose.Schema({
+const reviewSchema = new mongoose.Schema({
     rating: {
         type: Date,
         required: true,
@@ -23,6 +23,6 @@ const bookingSchema = new mongoose.Schema({
 }, {timestamps: true })
 
 
-const Booking = mongoose.model("Booking", userSchema);
+const Review = mongoose.model("Review", reviewSchema);
 
-module.exports = Booking;
+module.exports = Review;

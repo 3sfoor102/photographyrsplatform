@@ -17,7 +17,7 @@ const createBooking = async (req, res) =>{
 
 }
 
-const index  = async(req, res)=>{
+const index = async(req, res)=>{
     let allBookings = await Booking.find()
     res.render('index.ejs', {
         allBookings: allBookings
@@ -31,7 +31,25 @@ const show = async(req, res) =>{
     })
 }
 
+const edit = async(req,res)=>{
+    let bookingToEdit = await Booking.findById(req.params.bookingId)
+    res.render('edit.ejs', {
+        bookingToEdit: bookingToEdit
+    })
+}
+
+const update = async(req, res)=>{
+    const bookingData = {}
+    bookingData.name = req.body.name
+    bookingData.email = req.body.email
+    bookingData.phoneNumber = req.body.phoneNumber
+    bookingData.date = req.body.date
+    bookingData.package = req.body.package
+    
+    await Booking.findByIdAndUpdate(req.params.bookingId, bookingData, {new: true} )
+    res.redirect(`/bookings/${req.params.bookingId}`)
+}
 
 module.exports = {
-newBookingForm, createBooking, index, show,
+newBookingForm, createBooking, index, show, update, edit,
 };
