@@ -13,8 +13,26 @@ const createBooking = async (req, res) =>{
     bookingData.package = req.body.package
 
     await Booking.create(bookingData)
-    res.send('Booked!')
 
+    // Send the data to your Make/Zapier webhook for TickTick
+    try {
+        await fetch('https://hook.eu1.make.com/p3hpedvrb8nny1w9c4103otdfjhjbjge', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title: `📸 New Booking: ${bookingData.name}`,
+                dueDate: bookingData.date,
+                notes: `Email: ${bookingData.email}\nPhone: ${bookingData.phoneNumber}\nPackage: ${bookingData.package}`,
+                tags: ['photography', 'booking']
+            }),
+        });
+    } catch (err) {
+        console.error('TickTick sync failed:', err);
+    }
+
+    res.send('Booked!')
 }
 
 const index = async(req, res)=>{

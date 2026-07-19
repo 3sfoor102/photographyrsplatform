@@ -78,6 +78,7 @@ app.delete('/bookings/:bookingId', bookingCtrl.deleteBooking)
 
 
 
+
 const startServer = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URI);
