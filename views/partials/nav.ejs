@@ -8,13 +8,14 @@
 </head>
 <body>
     <nav class="site-nav">
-        <a class="site-nav-brand" href="/">Authentication App</a>
+        <a class="site-nav-brand" href="/">PhotographyRS</a>
 
         <div class="site-nav-links">
-            <a class="site-nav-link" href="/">Home</a>
-
             <% if (user) { %>
                 <a class="site-nav-link" href="/dashboard">Dashboard</a>
+                <a class="site-nav-link" href="/Bookings">Bookings</a>
+                <a class="site-nav-link" href="/Bookings/new">New Booking</a>
+
 
                 <form
                     class="site-nav-form"
