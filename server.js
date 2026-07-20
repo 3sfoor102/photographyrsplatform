@@ -8,6 +8,8 @@ require("dotenv").config();
 
 const authCtrl = require("./controllers/auth.js");
 const bookingCtrl = require("./controllers/booking-controller.js");
+const questionCtrl = require("./controllers/questions-controller.js");
+
 const isSignedIn = require("./middleware/is-signed-in.js");
 const passUserToView = require("./middleware/pass-user-to-view.js");
 const methodOverride = require("method-override");
@@ -60,7 +62,9 @@ app.get('/bookings/:bookingId/edit', bookingCtrl.edit)
 app.put('/bookings/:bookingId', bookingCtrl.update)
 app.delete('/bookings/:bookingId', bookingCtrl.deleteBooking)
 
-
+app.post('/questions/:questionId', questionCtrl.create)
+// app.get('/questions', questionCtrl.showQuestion)
+// app.get('/reviews', questionCtrl.showQuestion)
 
 
 

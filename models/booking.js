@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+// const Question = require("../models/question");
+
 
 const bookingSchema = new mongoose.Schema({
     name: {
@@ -24,8 +26,11 @@ const bookingSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-    }
-
+    }, 
+    questions:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Question',
+    },
 }, {timestamps: true })
 
 
