@@ -27,7 +27,6 @@ const createBooking = async (req, res) =>{
 
 await Booking.create(bookingData);
 
-const allBookings = await Booking.find({});
     try {
         await fetch('https://hook.eu1.make.com/p3hpedvrb8nny1w9c4103otdfjhjbjge', {
             method: 'POST',
@@ -45,7 +44,7 @@ const allBookings = await Booking.find({});
         console.error('TickTick sync failed:', err);
     }
 
-    res.send('Booked!')
+    res.redirect(`/bookings`)
 }
 
 const index = async(req, res)=>{
