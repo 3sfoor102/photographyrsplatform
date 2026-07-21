@@ -63,8 +63,9 @@ app.put('/bookings/:bookingId', bookingCtrl.update)
 app.delete('/bookings/:bookingId', bookingCtrl.deleteBooking)
 
 app.get('/questions/new', isSignedIn, questionCtrl.questionIndex)
-app.post('/questions/:questionId', questionCtrl.create)
-
+app.post('/questions/', isSignedIn, questionCtrl.create)
+app.get('/questions', isSignedIn, questionCtrl.questionIndex)
+app.get('/questions/:questionId', isSignedIn, questionCtrl.showQuestion)
 
 // app.get('/listings/new', isSignedIn, listingsCtrl.showNewForm)
 // app.post('/listings', isSignedIn, upload.single('image'), listingsCtrl.create)

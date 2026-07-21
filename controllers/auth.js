@@ -33,7 +33,7 @@ const signUp = async (req, res) => {
 
     req.session.user = {
         username: user.username,
-        id_: user._id,
+        _id: user._id,
     };
 
     req.session.save(() => {
