@@ -1,6 +1,6 @@
  <%- include('./partials/nav') %>
 <body class="index-page">
-  <h1> All Bookings</h1>
+  <h1> All Bookings.. All .. Past .. Coming .. </h1>
 
 </body>
 </html>
@@ -14,7 +14,7 @@
       <h4 class="fw-bold mb-1 text-dark"><%=item.name.toUpperCase()%></h4>
       <div class="d-flex align-items-center gap-2 text-muted small">
         <span class="rounded-circle bg-warning d-inline-block" style="width: 10px; height: 10px;"></span>
-        <span>Package</span>
+        <span>Package: <%=item.package%></span>
       </div>
     </div>
     
@@ -29,14 +29,16 @@
     <div class="row align-items-center g-2">
       
       <div class="col-7 border-end">
-        <div class="d-flex align-items-center gap-2 mb-2 text-dark small fw-medium">
-          <i class="bi bi-calendar4 text-secondary"></i>
-          <span><%=item.date%></span>
-        </div>
+
         <div class="d-flex align-items-center gap-2 text-secondary small">
           <i class="bi bi-clock text-secondary"></i>
-          <span>3:00 PM - 3:45 PM</span>
+          <span>Booking Date</span>
         </div>
+        <div class="d-flex align-items-center gap-2 mb-2 text-dark small fw-medium">
+          <i class="bi bi-calendar4 text-secondary"></i>
+          <span><%=item.date.toLocaleDateString('en-US',{weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'})%></span>
+        </div>
+
       </div>
 
       <div class="col-5 ps-3">

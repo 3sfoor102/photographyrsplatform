@@ -2,25 +2,106 @@
 
  <h1>My Booking</h1>
 
- <ul>
-<div class="bookings">
-    <h1>HI, <%=showBooking.name.toUpperCase()%>!</h1>
-     <h2>Congratulations!</h2>
-    <p>Your booking is confirmed.</p>
-    <p>Please look at your email <%=showBooking.email%></p>
-    <p>Phone: <%=showBooking.phoneNumber%> </p>
-    <p>Package: <%=showBooking.package%></p>
-    <p>Your reservation date is: </p>
-    <strong><%=showBooking.date.toLocaleDateString('en-US',{weekday:"long"} )%></strong>
-    <div class="delete-edit-btns">
-    <form action="/bookings/<%=showBooking._id%>?_method=DELETE" method="POST">
+ 
+
+<div class="card border-0 shadow-sm rounded-4 p-4 mx-auto" style="max-width: 450px; background-color: #ffffff;">
+  
+  <div class="d-flex justify-content-between align-items-start mb-3">
+    <div>
+      <h4 class="fw-bold mb-1 text-dark"><%=showBooking.name.toUpperCase()%></h4>
+      <div class="d-flex align-items-center gap-2 text-muted small">
+        <span class="rounded-circle bg-warning d-inline-block" style="width: 10px; height: 10px;"></span>
+        <span>Package: <%=showBooking.package%></span>
+      </div>
+    </div>
+    
+    <span class="badge rounded-pill bg-success-subtle text-success border border-success-subtle px-3 py-2 fw-medium d-flex align-items-center gap-1 fs-6">
+      <i class="bi bi-check-lg"></i> Booked
+    </span>
+  </div>
+
+  <h6 class="fw-bold text-dark mb-3">Booking details</h6>
+
+  <div class="bg-body-tertiary rounded-4 p-3 mb-3">
+    <div class="row align-items-center g-2">
+      
+      <div class="col-7 border-end">
+
+        <div class="d-flex align-items-center gap-2 text-secondary small">
+          <i class="bi bi-clock text-secondary"></i>
+          <span>Booking Date</span>
+        </div>
+        <div class="d-flex align-items-center gap-2 mb-2 text-dark small fw-medium">
+          <i class="bi bi-calendar4 text-secondary"></i>
+          <span><%=showBooking.date.toLocaleDateString('en-US',{weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'})%></span>
+        </div>
+
+      </div>
+        <div class="col-5 ps-3">
+        <div class="text-secondary small mb-1">Points Earned</div>
+        <div class="fs-4 fw-bold text-dark">10</div>
+        
+      </div>
+
+      <div class="col-7 border-end">
+
+        <div class="d-flex align-items-center gap-2 text-secondary small">
+          <i class="bi bi-clock text-secondary"></i>
+          <span>Email</span>
+        </div>
+        <div class="d-flex align-items-center gap-2 mb-2 text-dark small fw-medium">
+          <i class="bi bi-calendar4 text-secondary"></i>
+          <span><%=showBooking.email%></span>
+        </div>
+        
+      </div>
+
+      <div class="col-5 ps-3">
+        <div class="text-secondary small mb-1">Points Earned</div>
+        <div class="fs-4 fw-bold text-dark">10</div>
+        
+      </div>
+
+      <div class="col-7 border-end">
+
+        <div class="d-flex align-items-center gap-2 text-secondary small">
+          <i class="bi bi-clock text-secondary"></i>
+          <span>Phone Number</span>
+        </div>
+        <div class="d-flex align-items-center gap-2 mb-2 text-dark small fw-medium">
+          <i class="bi bi-calendar4 text-secondary"></i>
+          <span><%=showBooking.phoneNumber%></span>
+        </div>
+
+      </div>
+
+      
+      <div class="col-5 ps-3">
+        <div class="text-secondary small mb-1">Points Earned</div>
+        <div class="fs-4 fw-bold text-dark">10</div>
+        
+      </div>
+      
+
+
+    </div>
+  </div>
+
+  <div class="overflow-hidden rounded-4">
+    <img src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?q=80&w=800&auto=format&fit=crop" class="img-fluid w-100 d-block" alt="Booking photo" style="object-fit: cover; max-height: 220px;">
+  </div>
+  <form action="/bookings/<%=showBooking._id%>?_method=DELETE" method="POST">
             <button class="submit" type="submit">DELETE</button>
 
     </form>
     <a class="submit" id="edit-btn" href="/bookings/<%=showBooking._id%>/edit">Edit <%=showBooking.name%>'s Booking</a>
 
-    </div>
 </div>
+
+ <ul>
+
+
+
 </ul>
 
 
