@@ -14,12 +14,7 @@ body {
   box-sizing: border-box;
   padding: 40px 20px;
 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
-url('../images/background.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed; 
+  background-color: #f4f4f6;
 
 }
 
