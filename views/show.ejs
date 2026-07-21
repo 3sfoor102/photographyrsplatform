@@ -11,7 +11,7 @@
     <p>Phone: <%=showBooking.phoneNumber%> </p>
     <p>Package: <%=showBooking.package%></p>
     <p>Your reservation date is: </p>
-    <strong><%=showBooking.date%></strong>
+    <strong><%=showBooking.date.toLocaleDateString('en-US',{weekday:"long"} )%></strong>
     <div class="delete-edit-btns">
     <form action="/bookings/<%=showBooking._id%>?_method=DELETE" method="POST">
             <button class="submit" type="submit">DELETE</button>

@@ -6,6 +6,9 @@ const newBookingForm = (req, res) => {
 
 const createBooking = async (req, res) =>{
     const bookingData = {}
+    const originalDate = req.body.date
+    const date = new Date(originalDate)
+
     bookingData.name = req.body.name
     bookingData.email = req.body.email
     bookingData.phoneNumber = req.body.phoneNumber
@@ -43,6 +46,7 @@ const index = async(req, res)=>{
 
 const show = async(req, res) =>{
     let showBooking = await Booking.findById(req.params.bookingId)
+ 
     res.render('show.ejs', {
         showBooking: showBooking
     })
