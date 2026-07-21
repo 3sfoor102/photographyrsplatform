@@ -1,4 +1,5 @@
 const Booking = require("../models/booking");
+const User = require("../models/user");
 
 const newBookingForm = (req, res) => {
     res.render('new.ejs')
@@ -8,16 +9,25 @@ const createBooking = async (req, res) =>{
     const bookingData = {}
     const originalDate = req.body.date
     const date = new Date(originalDate)
-    let userPoints = U
-
+    let user = await User.findById(req.session.user.id)
+    if (user.points <=100) {
+    user.points = user.points + 10
+    await user.save()
+    }
+    //  else {
+    //     let UserHasFreeSession = false
+    // }
+ 
     bookingData.name = req.body.name
     bookingData.email = req.body.email
     bookingData.phoneNumber = req.body.phoneNumber
     bookingData.date = req.body.date
     bookingData.package = req.body.package
+    bookingData.userId = req.session.user.id
 
-    await Booking.create(bookingData)
+await Booking.create(bookingData);
 
+const allBookings = await Booking.find({});
     try {
         await fetch('https://hook.eu1.make.com/p3hpedvrb8nny1w9c4103otdfjhjbjge', {
             method: 'POST',
