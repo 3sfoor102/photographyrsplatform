@@ -8,6 +8,7 @@ const createBooking = async (req, res) =>{
     const bookingData = {}
     const originalDate = req.body.date
     const date = new Date(originalDate)
+    let userPoints = U
 
     bookingData.name = req.body.name
     bookingData.email = req.body.email

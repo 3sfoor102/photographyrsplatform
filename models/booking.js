@@ -25,10 +25,6 @@ const bookingSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     }, 
-//     questions:[{
-//         type: mongoose.Schema.Types.ObjectId,
-//         ref: 'Question',
-//    }],
 }, {timestamps: true })
 
 
