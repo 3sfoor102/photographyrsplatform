@@ -9,6 +9,8 @@ require("dotenv").config();
 const authCtrl = require("./controllers/auth.js");
 const bookingCtrl = require("./controllers/booking-controller.js");
 const questionCtrl = require("./controllers/questions-controller.js");
+const galleruCtrl = require("./controllers/gallery-controller.js");
+
 
 const isSignedIn = require("./middleware/is-signed-in.js");
 const passUserToView = require("./middleware/pass-user-to-view.js");
@@ -53,7 +55,7 @@ app.delete("/auth/sign-out", authCtrl.signOut);
 
 app.get("/dashboard", isSignedIn, authCtrl.dashboard);
 
-// Bookings Routes
+// BOOKING ROUTES
 app.get('/bookings/new', isSignedIn, bookingCtrl.newBookingForm)
 app.post('/booking', isSignedIn, bookingCtrl.createBooking)
 app.get('/bookings', bookingCtrl.index)
@@ -62,23 +64,21 @@ app.get('/bookings/:bookingId/edit', bookingCtrl.edit)
 app.put('/bookings/:bookingId', bookingCtrl.update)
 app.delete('/bookings/:bookingId', bookingCtrl.deleteBooking)
 
+
+// QUESTIONS ROUTES
 app.get('/questions/new', isSignedIn, questionCtrl.questionIndex)
 app.post('/questions/', isSignedIn, questionCtrl.create)
 app.get('/questions', isSignedIn, questionCtrl.questionIndex)
 app.get('/questions/:questionId', isSignedIn, questionCtrl.showQuestion)
 
-// app.get('/listings/new', isSignedIn, listingsCtrl.showNewForm)
-// app.post('/listings', isSignedIn, upload.single('image'), listingsCtrl.create)
-// app.get('/listings', listingsCtrl.index)
-// app.get('/listings/:listingId', listingsCtrl.show)
+
 // app.delete('/listings/:listingId', isSignedIn, listingsCtrl.deleteListing)
-// app.get('/listings/:listingId/edit', isSignedIn, listingsCtrl.edit)
-// app.put('/listings/:listingId', isSignedIn, upload.single('image'), listingsCtrl.update)
+
+// GALLERY ROUTES
+app.get('/gallery', isSignedIn, galleruCtrl.showGallery)
 
 
 
-
-// app.get('/reviews', questionCtrl.showQuestion)
 
 
 
