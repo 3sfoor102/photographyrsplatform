@@ -62,14 +62,22 @@ app.get('/bookings/:bookingId/edit', bookingCtrl.edit)
 app.put('/bookings/:bookingId', bookingCtrl.update)
 app.delete('/bookings/:bookingId', bookingCtrl.deleteBooking)
 
+app.get('/questions/new', isSignedIn, questionCtrl.questionIndex)
 app.post('/questions/:questionId', questionCtrl.create)
-// app.get('/questions', questionCtrl.showQuestion)
+
+
+// app.get('/listings/new', isSignedIn, listingsCtrl.showNewForm)
+// app.post('/listings', isSignedIn, upload.single('image'), listingsCtrl.create)
+// app.get('/listings', listingsCtrl.index)
+// app.get('/listings/:listingId', listingsCtrl.show)
+// app.delete('/listings/:listingId', isSignedIn, listingsCtrl.deleteListing)
+// app.get('/listings/:listingId/edit', isSignedIn, listingsCtrl.edit)
+// app.put('/listings/:listingId', isSignedIn, upload.single('image'), listingsCtrl.update)
+
+
+
+
 // app.get('/reviews', questionCtrl.showQuestion)
-
-
-
-
-
 
 
 
