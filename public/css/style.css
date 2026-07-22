@@ -14,7 +14,7 @@ body {
   box-sizing: border-box;
   padding: 40px 20px;
 
-  background-color: #f4f4f6;
+  background-color: #fefefe !important;
 
 }
 
@@ -378,4 +378,15 @@ footer {
 
 .card-deck{
     margin: 10px
+}
+
+.show-booking-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
 }

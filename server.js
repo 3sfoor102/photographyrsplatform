@@ -9,7 +9,7 @@ require("dotenv").config();
 const authCtrl = require("./controllers/auth.js");
 const bookingCtrl = require("./controllers/booking-controller.js");
 const questionCtrl = require("./controllers/questions-controller.js");
-const galleruCtrl = require("./controllers/gallery-controller.js");
+const galleryCtrl = require("./controllers/gallery-controller.js");
 
 
 const isSignedIn = require("./middleware/is-signed-in.js");
@@ -75,7 +75,7 @@ app.get('/questions/:questionId', isSignedIn, questionCtrl.showQuestion)
 // app.delete('/listings/:listingId', isSignedIn, listingsCtrl.deleteListing)
 
 // GALLERY ROUTES
-app.get('/gallery', isSignedIn, galleruCtrl.showGallery)
+app.get('/gallery', isSignedIn, galleryCtrl.showGallery, galleryCtrl.GalleryRandomImages)
 
 
 
