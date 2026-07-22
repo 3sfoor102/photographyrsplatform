@@ -8,29 +8,28 @@
     <h1>FAQ</h1>
     <form action="/questions/" method="POST">
         <textarea name="text" rows="4" required maxlength="150"></textarea>
-        <h2>Questions from Users! ADD THE USER NAME HERE</h2>
+        <h2>Questions from Users!</h2>
         <%allQuestions.forEach((item)=>{%>
-        <p><%= item.text %></p>
-        <p><%= item.author %></p>
+
+            <div class="card-deck">
+        <div class="card">
+            <div class="card-body">
+            <h5 class="card-title"><%= item.author %></h5>
+            <p class="card-text"><%= item.text %></p>
+            </div>
+            <div class="card-footer">
+            <small class="text-muted">Created at <%= item.createdAt.toLocaleDateString('en-US',{weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'}) %></small>
+            </div>
+        </div>
+        </div>
 
         <%})%>
-
 
         <button type="submit">Ask a Question!</button>
 
     </form>
 
-    <div class="card-deck">
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-</div>
+
     
 
     
