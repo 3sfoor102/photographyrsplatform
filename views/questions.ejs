@@ -1,38 +1,40 @@
 <%- include("./partials/nav.ejs") %>
-<title>Questions</title>
+<title>Questions - FAQ</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questions</title>
-</head>
-<body>
-    <h1>FAQ</h1>
-    <form action="/questions/" method="POST">
-        <textarea name="text" rows="4" required maxlength="150"></textarea>
-        <h2>Questions from Users!</h2>
-        <%allQuestions.forEach((item)=>{%>
+<main class="faq-container">
+  <h1>FAQ</h1>
 
-            <div class="card-deck">
-        <div class="card">
-            <div class="card-body">
-            <h5 class="card-title"><%= item.author %></h5>
-            <p class="card-text"><%= item.text %></p>
-            </div>
-            <div class="card-footer">
-            <small class="text-muted">Created at <%= item.createdAt.toLocaleDateString('en-US',{weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'}) %></small>
-            </div>
+  <form action="/questions/" method="POST" class="faq-form">
+    <label for="question-input">Ask a Question</label>
+    <textarea 
+      id="question-input"
+      name="text" 
+      rows="4" 
+      required 
+      maxlength="150" 
+      class="form-input faq-textarea"
+      placeholder="Type your question here..."></textarea>
+    <button type="submit" class="submit">Ask a Question!</button>
+  </form>
+
+  <h2 class="faq-section-title">Questions from Users</h2>
+
+  <div class="faq-grid">
+    <% allQuestions.forEach((item) => { %>
+      <div class="card faq-card">
+        <div class="card-body">
+          <h5 class="faq-author"><%= item.author.username %></h5>
+          <p class="faq-text"><%= item.text %></p>
         </div>
+        <div class="card-footer">
+          <small class="faq-date">
+            Created at <%= item.createdAt.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }) %>
+          </small>
         </div>
+      </div>
+    <% }) %>
+  </div>
+</main>
 
-        <%})%>
-
-        <button type="submit">Ask a Question!</button>
-
-    </form>
-
-
-    
-
-    
 </body>
 </html>

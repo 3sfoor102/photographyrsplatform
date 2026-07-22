@@ -2,7 +2,7 @@ const Question = require("../models/question");
 const Booking = require("../models/booking");
 
 const questionIndex = async (req, res) => {
-    const allQuestions = await Question.find()
+    const allQuestions = await Question.find().populate('author')
         res.render('questions.ejs',
         {allQuestions: allQuestions}
 )   
@@ -11,7 +11,7 @@ const questionIndex = async (req, res) => {
 const create = async(req, res)=>{
     const questionData = {}
     questionData.text = req.body.text
-    questionData.author = req.session.user.id
+    questionData.author = req.session.user._id
 
     createdQuestion = await Question.create(questionData)
     console.log(questionData);

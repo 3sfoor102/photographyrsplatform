@@ -10,11 +10,7 @@ const createBooking = async (req, res) =>{
     const originalDate = req.body.date
     const date = new Date(originalDate)
     let user = await User.findById(req.session.user.id)
-    if (user.points <=100) {
-    user.points = user.points + 10
-    await user.save()
-    } 
-
+ 
  
     bookingData.name = req.body.name
     bookingData.email = req.body.email
