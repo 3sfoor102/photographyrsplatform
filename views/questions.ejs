@@ -1,0 +1,38 @@
+<%- include("./partials/nav.ejs") %>
+<title>Questions</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions</title>
+</head>
+<body>
+    <h1>FAQ</h1>
+    <form action="/questions/" method="POST">
+        <textarea name="text" rows="4" required maxlength="150"></textarea>
+        <h2>Questions from Users!</h2>
+        <%allQuestions.forEach((item)=>{%>
+
+            <div class="card-deck">
+        <div class="card">
+            <div class="card-body">
+            <h5 class="card-title"><%= item.author %></h5>
+            <p class="card-text"><%= item.text %></p>
+            </div>
+            <div class="card-footer">
+            <small class="text-muted">Created at <%= item.createdAt.toLocaleDateString('en-US',{weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'}) %></small>
+            </div>
+        </div>
+        </div>
+
+        <%})%>
+
+        <button type="submit">Ask a Question!</button>
+
+    </form>
+
+
+    
+
+    
+</body>
+</html>
