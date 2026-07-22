@@ -1,7 +1,5 @@
 const dns = require("node:dns");
 
-// DNS workaround for MongoDB Atlas.
-// Remove these two lines if your regular DNS works correctly.
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 require("dotenv").config();

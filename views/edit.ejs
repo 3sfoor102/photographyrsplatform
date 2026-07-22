@@ -1,5 +1,6 @@
 
 <%- include('./partials/nav') %>
+<title>Edit</title>
 
 <h1>Edit <%=bookingToEdit.name%></h1>
 <form action="/bookings/<%=bookingToEdit._id%>?_method=PUT" method="POST">

@@ -14,9 +14,7 @@ const createBooking = async (req, res) =>{
     user.points = user.points + 10
     await user.save()
     }
-    //  else {
-    //     let UserHasFreeSession = false
-    // }
+
  
     bookingData.name = req.body.name
     bookingData.email = req.body.email
