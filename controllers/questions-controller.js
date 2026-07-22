@@ -20,7 +20,7 @@ const create = async(req, res)=>{
 
 }
 const showQuestion = async (req, res)=>{
-    const foundQuestion = await Question.findById(req.params.questionId)//.populate('author')
+    const foundQuestion = await Question.findById(req.params.questionId)
     res.render('questions-show.ejs', {
         foundQuestion: foundQuestion,
     })
