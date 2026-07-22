@@ -13,7 +13,7 @@ const createBooking = async (req, res) =>{
     if (user.points <=100) {
     user.points = user.points + 10
     await user.save()
-    }
+    } 
 
  
     bookingData.name = req.body.name

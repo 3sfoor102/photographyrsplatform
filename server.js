@@ -76,17 +76,12 @@ app.get('/questions/:questionId', isSignedIn, questionCtrl.showQuestion)
 app.get('/gallery', isSignedIn, galleryCtrl.showGallery, galleryCtrl.GalleryRandomImages)
 
 
+app.get('/*splat', (req, res)=>{
+    res.render('error.ejs', {
+        msg:404
 
-
-
-
-
-
-
-
-
-
-
+    })
+})
 
 
 
