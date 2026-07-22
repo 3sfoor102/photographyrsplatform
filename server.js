@@ -56,11 +56,11 @@ app.get("/reviews", isSignedIn, authCtrl.dashboard);
 // BOOKING ROUTES
 app.get('/bookings/new', isSignedIn, bookingCtrl.newBookingForm)
 app.post('/booking', isSignedIn, bookingCtrl.createBooking)
-app.get('/bookings', bookingCtrl.index)
-app.get('/bookings/:bookingId', bookingCtrl.show )
-app.get('/bookings/:bookingId/edit', bookingCtrl.edit)
-app.put('/bookings/:bookingId', bookingCtrl.update)
-app.delete('/bookings/:bookingId', bookingCtrl.deleteBooking)
+app.get('/bookings', isSignedIn,  bookingCtrl.index)
+app.get('/bookings/:bookingId', isSignedIn, bookingCtrl.show )
+app.get('/bookings/:bookingId/edit', isSignedIn, bookingCtrl.edit)
+app.put('/bookings/:bookingId', isSignedIn, bookingCtrl.update)
+app.delete('/bookings/:bookingId', isSignedIn, bookingCtrl.deleteBooking)
 
 
 // QUESTIONS ROUTES
@@ -69,8 +69,6 @@ app.post('/questions/', isSignedIn, questionCtrl.create)
 app.get('/questions', isSignedIn, questionCtrl.questionIndex)
 app.get('/questions/:questionId', isSignedIn, questionCtrl.showQuestion)
 
-
-// app.delete('/listings/:listingId', isSignedIn, listingsCtrl.deleteListing)
 
 // GALLERY ROUTES
 app.get('/gallery', isSignedIn, galleryCtrl.showGallery, galleryCtrl.GalleryRandomImages)

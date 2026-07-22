@@ -1,13 +1,49 @@
 <%- include("./partials/nav.ejs") %>
-<title>Home</title>
+<title>Home - PhotographyRS</title>
 
-    <% if (user) { %>
-    <h1><strong><%= user.username.toUpperCase() %> </strong> Welcome to PhotographyRS</h1>
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-af7b5482-59f3-4d27-9cce-ad2b32f8c85e" data-elfsight-app-lazy></div>
-    <% } else { %>
-        <p>Please Sign In</p>
-    <% } %>
+<main class="home-main">
+  <% if (user) { %>
+    <h1>WELCOME BACK, <%= user.username.toUpperCase() %></h1>
+    <p class="welcome-subtitle">
+      Ready to schedule your next session? Reserve your date below.
+    </p>
+    <section class="hero-feature">
+      <div class="hero-banner">
+        <img src="/images/wedding.jpg" alt="Wedding Session" class="hero-bg-img" />
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+          <span class="hero-badge">FEATURED SERVICE</span>
+          <h2>Wedding Photography & Videography</h2>
+          <p>
+            Capture every moment of your special day with full coverage, custom lighting, and cinematic event films.
+          </p>
+          <a href="/bookings/new" class="submit hero-btn">Book Session</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="widget-section">
+      <script src="https://elfsightcdn.com/platform.js" async></script>
+      <div class="elfsight-app-af7b5482-59f3-4d27-9cce-ad2b32f8c85e" data-elfsight-app-lazy></div>
+    </section>
+
+  <% } else { %>
+    <div class="auth-card guest-card">
+      <h1 class="guest-title">PhotographyRS</h1>
+      <p class="guest-subtitle">
+        Book high-quality photography and videography sessions in just a few clicks.
+      </p>
+
+      <div class="guest-actions">
+        <a href="/auth/sign-in" class="submit">Sign In</a>
+        <a href="/auth/sign-up" class="site-nav-button guest-signup-btn">Create an Account</a>
+      </div>
+    </div>
+  <% } %>
 </main>
+
+
+
 </body>
 </html>
