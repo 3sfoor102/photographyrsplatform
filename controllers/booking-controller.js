@@ -30,7 +30,8 @@ await Booking.create(bookingData);
                 title: `📸 New Booking: ${bookingData.name}`,
                 dueDate: bookingData.date,
                 notes: `Email: ${bookingData.email}\nPhone: ${bookingData.phoneNumber}\nPackage: ${bookingData.package}`,
-                list: ['Videography - Reservations']
+                list: ['Videography - Reservations'],
+                email: `${bookingData.email}`
             }),
         });
     } catch (err) {

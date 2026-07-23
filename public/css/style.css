@@ -442,3 +442,39 @@ footer {
   background-color: #dc2626 !important;
   color: #ffffff !important;
 }
+
+.show-booking-card-detail,
+.card.show-card-wide {
+  max-width: 750px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+#delete-popover {
+  max-width: 400px;
+  margin: auto;
+  background-color: #ffffff !important;
+  color: #121214 !important;
+}
+
+#delete-popover::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+#delete-popover form {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#delete-popover button {
+  height: auto !important;
+  min-height: initial !important;
+  margin: 0 !important;
+  text-transform: none !important;
+}

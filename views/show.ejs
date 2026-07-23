@@ -3,13 +3,13 @@
 
 <h1>My Booking</h1>
 
-<div class="card border-0 shadow-sm rounded-4 p-4 mx-auto" style="max-width: 450px; background-color: #ffffff;">
+<div class="card show-card-wide border-0 shadow-sm rounded-4 p-4 mx-auto">
   
   <div class="d-flex justify-content-between align-items-start mb-3">
     <div>
       <h4 class="fw-bold mb-1 text-dark"><%= showBooking.name.toUpperCase() %></h4>
       <div class="d-flex align-items-center gap-2 text-muted small">
-        <span class="rounded-circle bg-warning d-inline-block" style="width: 10px; height: 10px;"></span>
+        <span class="rounded-circle bg-warning d-inline-block"></span>
         <span>Package: <%= showBooking.package %></span>
       </div>
     </div>
@@ -58,22 +58,40 @@
   </div>
 
   <div class="overflow-hidden rounded-4 mb-3">
-    <img src="https://drive.google.com/thumbnail?id=1jTy3yTwOxAQm0FcHerw6iol0WjM7jrA0&sz=s4000" class="img-fluid w-100 d-block" alt="Booking photo" style="object-fit: cover; max-height: 220px;">
+    <img src="https://drive.google.com/thumbnail?id=1jTy3yTwOxAQm0FcHerw6iol0WjM7jrA0&sz=s4000" class="img-fluid w-100 d-block" alt="Booking photo">
   </div>
 
+  <% if (user && showBooking.userId && showBooking.userId.toString() === user._id.toString()) { %>
+    <div class="show-actions-row">
+      <a class="submit text-center" id="edit-btn" href="/bookings/<%= showBooking._id %>/edit">
+        Edit Booking
+      </a>
 
-<% if (user && showBooking.userId && showBooking.userId.toString() === user._id.toString()) { %>  <div class="show-actions-row">
-    <a class="submit text-center" id="edit-btn" href="/bookings/<%= showBooking._id %>/edit">
-      Edit Booking
-    </a>
+      <button type="button" class="submit btn-delete-action" popovertarget="delete-popover">
+        Delete
+      </button>
+    </div>
+  <% } %>
+
+</div>
+
+<div id="delete-popover" popover="auto" class="rounded-4 border-0 shadow-lg p-4">
+  <h5 class="fw-bold text-dark mb-2">Confirm Deletion</h5>
+  <p class="text-secondary small mb-4">
+    Are you sure you want to delete <%= showBooking.name %>'s booking? This action cannot be undone.
+  </p>
+
+  <div class="d-flex justify-content-end align-items-center gap-2">
+    <button type="button" class="btn btn-outline-secondary rounded-3 px-3 py-2 fw-medium" popovertarget="delete-popover" popovertargetaction="hide">
+      Cancel
+    </button>
 
     <form action="/bookings/<%= showBooking._id %>?_method=DELETE" method="POST">
-      <button class="submit btn-delete-action" type="submit">
-        Delete
+      <button type="submit" class="btn btn-danger rounded-3 px-3 py-2 fw-medium">
+        Yes, Delete
       </button>
     </form>
   </div>
-<%}%>
 </div>
 
 </body>
