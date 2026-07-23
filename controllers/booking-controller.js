@@ -9,7 +9,7 @@ const createBooking = async (req, res) =>{
     const bookingData = {}
     const originalDate = req.body.date
     const date = new Date(originalDate)
-    let user = await User.findById(req.session.user.id)
+    let user = await User.findById(req.session.user._id)
  
  
     bookingData.name = req.body.name
@@ -17,8 +17,7 @@ const createBooking = async (req, res) =>{
     bookingData.phoneNumber = req.body.phoneNumber
     bookingData.date = req.body.date
     bookingData.package = req.body.package
-    bookingData.userId = req.session.user.id
-
+    bookingData.userId = req.session.user._id;
 await Booking.create(bookingData);
 
     try {
@@ -52,7 +51,8 @@ const show = async(req, res) =>{
     let showBooking = await Booking.findById(req.params.bookingId)
  
     res.render('show.ejs', {
-        showBooking: showBooking
+        showBooking: showBooking,
+        user: req.session.user
     })
 }
 

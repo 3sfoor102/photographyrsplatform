@@ -67,7 +67,7 @@ const signIn = async (req, res) => {
 
     req.session.user = {
         username: userInDatabase.username,
-        id: userInDatabase.id,
+        _id: userInDatabase._id,
     };
 
     req.session.save(() => {

@@ -62,7 +62,7 @@
   </div>
 
 
-  <div class="show-actions-row">
+<% if (user && showBooking.userId && showBooking.userId.toString() === user._id.toString()) { %>  <div class="show-actions-row">
     <a class="submit text-center" id="edit-btn" href="/bookings/<%= showBooking._id %>/edit">
       Edit Booking
     </a>
@@ -73,7 +73,7 @@
       </button>
     </form>
   </div>
-
+<%}%>
 </div>
 
 </body>
